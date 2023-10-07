@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import logo from "@assets/images/dea-logo.svg";
+import Link from "@component/astro/base/_Link.astro";
+---
+
+<header class="bg-transparent sm:py-4 p-0">
+  <div class="w-full sm:px-16 px-4 text-md">
+    <div class="flex h-16 items-center justify-between flex-wrap">
+      <div class="flex-1 md:flex md:items-center md:gap-12">
+        <a class="block text-teal-600 w-10" href="/">
+          <span class="sr-only">Home</span>
+          <Image
+            src={logo}
+            alt="mabarfun home"
+            class="sm:w-16 w-10"
+            sizes="sm"
+          />
+        </a>
+      </div>
+      <div class="sm:flex sm:items-center sm:gap-12">
+        <nav aria-label="Global" class="md:block">
+          <div class="flex items-center sm:gap-8 gap-2 sm:text-2xl text-md">
+            <Link title="Blacklist" url="/blacklist" />
+            <a
+              class="flex justify-center items-center sm:rounded-2xl rounded-xl border border-fuchsia-400 sm:px-5 sm:py-2.5 px-3 py-1.5 sm:text-lg font-medium text-white hover:bg-fuchsia-500 hover:border-gray-50 transition-all cursor-pointer"
+              title="Download"
+              href="/blacklist-domain.txt"
+              download="blocked-website.txt">Download</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

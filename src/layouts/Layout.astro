@@ -1,0 +1,44 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+import SiteMeta from "@component/astro/utilities/SiteMeta.astro";
+import Navbar from "@component/astro/utilities/Navbar.astro";
+import "@styles/globals.css";
+import Announcement from "@component/astro/Announcement.astro";
+
+type Props = {
+  title?: string,
+  description?: string
+}
+
+const {
+  title = "Trust+",
+  description = "Unofficial Trust Positive Indonesia",
+}: Props = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SiteMeta
+      title={title}
+      description={description.substring(0, 100)}
+      image="@assets/images/dea-logo.svg"
+      author="Trust+ People"
+      url={Astro.site
+        ? `${Astro.site}/${title.toLowerCase().replaceAll(" ", "-")}`
+        : `http://127.0.0.1:4321/${title.toLowerCase().replaceAll(" ", "-")}`}
+    />
+    <ViewTransitions fallback="swap" transition:animate="slide" />
+  </head>
+  <body>
+    <Announcement/>
+    <main>
+      <Navbar />
+      <slot/>
+    </main>
+  </body>
+</html>

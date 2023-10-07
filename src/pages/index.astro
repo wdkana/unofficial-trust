@@ -1,0 +1,12 @@
+---
+import DangerousCategory from "@component/astro/DangerousCategory.astro";
+import Hero from "@component/astro/Hero.astro";
+import Search from "@component/react/Search";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout>
+  <Hero/>
+  <Search client:only/>
+  <DangerousCategory/>
+</Layout>

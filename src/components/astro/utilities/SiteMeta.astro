@@ -1,0 +1,30 @@
+---
+import { z } from 'astro/zod';
+
+const siteMetaSchema = z.object({
+    title: z.string().optional(),
+    description: z.string().min(9).optional(),
+    image: z.string().optional(),
+    author: z.string().optional(),
+    url: z.string().optional()
+})
+
+type Props = z.infer<typeof siteMetaSchema>
+
+const { title, description, image, author, url }: Props = Astro.props;
+---
+
+<meta name="title" content={`${title} - ${description}`} />
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+
+<meta property="og:title" content={`${title} - ${description}`} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta
+  property="og:image"
+  content={Astro.site ? `${Astro.site}${image}` : image}
+/>
+
+<title>{title} - {description}</title>

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Gabarito', cursive;
+    --toastify-toast-width: 520px !important;
+    --toastify-toast-min-height: 160px !important;
+    --toastify-font-family: 'Gabarito', cursive !important;
+}
+
+html {
+    background-color: #1e1e1e;
+    background-image: url("../assets/images/bg-purple.svg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+code {
+    font-family:
+        Menlo,
+        Monaco,
+        Lucida Console,
+        Liberation Mono,
+        DejaVu Sans Mono,
+        Bitstream Vera Sans Mono,
+        Courier New,
+        monospace;
+}
+
+main {
+    margin: auto;
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    font-weight: 700;
+    line-height: 1;
+}

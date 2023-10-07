@@ -1,0 +1,37 @@
+---
+import { categoryResponse } from "@helpers/response";
+const category = categoryResponse().categoriesCount
+---
+
+<div class="sm:max-w-3xl mx-auto sm:px-16 px-8 py-8 ">
+  <h2 class="mb-2">Last Year On {category.lastYear}</h2>
+  <div class="grid grid-cols-1 gap-4">
+    <dl class="grid sm:grid-cols-2 grid-cols-1 gap-4">
+      <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
+        <dt class="order-last text-lg font-medium text-gray-500">Pornography</dt>
+        <dd class="text-4xl font-extrabold text-fuchsia-600 md:text-3xl">
+          {category.TotalPornografi}
+        </dd>
+      </div>
+      <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
+        <dt class="order-last text-lg font-medium text-gray-500">Gambling</dt>
+        <dd class="text-4xl font-extrabold text-fuchsia-600 md:text-3xl">
+          {category.TotalPerjudian}
+        </dd>
+      </div>
+      <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
+        <dt class="order-last text-lg font-medium text-gray-500">Human Rights Violations</dt>
+        <dd class="text-4xl font-extrabold text-fuchsia-600 md:text-3xl">
+          {category.TotalHKI}
+        </dd>
+      </div>
+      <a
+        class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center cursor-pointer hover:bg-fuchsia-100 transition-all"
+        href="/statistic"
+      >
+        <dt class="order-last text-lg font-medium text-gray-500">& More</dt>
+        <dd class="text-4xl font-extrabold text-fuchsia-600 md:text-4xl">+</dd>
+      </a>
+    </dl>
+  </div>
+</div>

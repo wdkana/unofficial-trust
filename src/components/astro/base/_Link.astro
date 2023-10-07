@@ -1,0 +1,35 @@
+---
+import { z } from "zod";
+
+const linkSchema = z.object({
+  title: z.string(),
+  url: z.string(),
+  variant: z.enum(["primary", "secondary"]).optional(),
+  style: z.string().optional(),
+});
+
+type Props = z.infer<typeof linkSchema>;
+const { title, url, variant, style }: Props = Astro.props;
+
+let variantStyle: string = "";
+
+switch (variant) {
+  case "primary":
+    variantStyle =
+      "flex justify-center items-center sm:rounded-2xl rounded-xl border bg-fuchsia-400 border-fuchsia-400 sm:px-5 sm:py-2.5 px-3 py-1.5 sm:text-lg font-medium text-white hover:bg-gray-100 hover:text-black hover:border-fuchsia-400 transition-all cursor-pointer";
+    break;
+
+  case "secondary":
+    variantStyle =
+      "flex justify-center items-center sm:rounded-2xl rounded-xl border border-fuchsia-400 sm:px-5 sm:py-2.5 px-3 py-1.5 sm:text-lg font-medium text-white hover:bg-fuchsia-500 hover:border-gray-50 transition-all cursor-pointer";
+    break;
+
+  default:
+    variantStyle = "text-white transition hover:text-fuchsia-300/75";
+    break;
+}
+---
+
+<a class=`${variantStyle} ${style}` href={url}>
+  {title}
+</a>
