@@ -17,6 +17,9 @@ $: But we grab it from the endpoint of real truspositive websites.
 
 - [✅] **Search Functionality**: Users can search for specific websites in the blocked list by entering a keyword or URL.
 - [✅] **User-Friendly Interface**: The website is designed to be intuitive and easy to navigate, ensuring a smooth user experience for visitors.
+
+👇 this is your journey, i'm just open the door, OK? 😄 👇
+
 - [🔥] **User Contributions**: Users can contribute to the project by suggesting new websites to be added to the blocked list or providing updates to existing JSON entries.
 - [⏳] **Statistic Page**: Showing a list of data count based on available categories.
 - [⏳] **Statistic Graphs**: Showing a graph for visualizing the data
