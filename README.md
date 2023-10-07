@@ -2,7 +2,7 @@
 
 <div style="text-align:center">
 
-![Trust+ Screenshoot](https://github.com/deaaprizal/trustplus-client/blob/main/src/assets/images/trust+.png?raw=true)
+![Trust+ Screenshoot](https://github.com/deaaprizal/unofficial-trust/blob/main/src/assets/images/trust+.png?raw=true)
 
 </div>
 
