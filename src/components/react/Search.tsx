@@ -1,4 +1,4 @@
-import { useRef, useState, type RefObject } from "react";
+import { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { z } from "zod";
 import { domainResponse } from "@helpers/response";
@@ -13,8 +13,8 @@ const DEFAULT_INPUT_LABEL: string = "site url / keyword :";
 
 const Search = () => {
   const [error, setError] = useState<string | null>(null);
-  const searchInputRef: RefObject<HTMLInputElement> =
-    useRef<HTMLInputElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const [lastSearchInput, setLastSearchInput] = useState<string | null>(null);
 
   const notify = (message: any) =>
     toast(message, {
@@ -23,6 +23,10 @@ const Search = () => {
     });
 
   const getTrustedData = async (searchInput: SearchInput): Promise<void> => {
+    if (searchInput === lastSearchInput) return;
+
+    setLastSearchInput(searchInput);
+
     const result = domainResponse(searchInput);
     notify(
       <PopupResult
@@ -46,9 +50,11 @@ const Search = () => {
     validateInput();
   };
 
-  const handleEnterKeyboard = (event: any) => {
+  const handleEnterKeyboard = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
     event.stopPropagation();
-    
+
     if (event.key === "Enter") {
       event.preventDefault();
       validateInput();
